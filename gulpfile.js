@@ -59,14 +59,9 @@ function sync() {
 
 
 function html() {
-    panini.refresh()
+    
     return src(path.src.html, {base: srcPath})
         .pipe(plumber())
-        .pipe(panini({
-            root: srcPath,
-            layouts: srcPath + "tpl/layouts/",
-            partials: srcPath + "tpl/partials/",
-}))
         .pipe(dest(path.build.html))
         .pipe(browserSync.reload({stream: true}))
 } 
